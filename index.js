@@ -1,6 +1,9 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const generateMarkdown = require("./generateMarkdown.js")
+
+![jdsheridan02](https://img.shields.io/github/languages/top/jdsheridan02/readme_generator_sheridan)
+
 // array of questions for user
 
 const questions = [
@@ -14,41 +17,41 @@ const questions = [
         name: "Description",
         message: "Describe your application/project"
     },
-      {
+    {
         type: "input",
         name: "TableofContents",
-        message: "aasd"
-      },
-      {
+        message: "Do you need to add a table of contents? What are the sections of your project?"
+    },
+    {
         type: "input",
         name: "Installation",
-        message: "What is the title of your project?"
-      },
-      {
+        message: "What are the steps required to install your project?"
+    },
+    {
         type: "input",
         name: "Usage",
-        message: "What is the title of your project?"
-      },
-      {
+        message: "How is your project supposed to be used?"
+    },
+    {
         type: "input",
         name: "License",
-        message: "What is the title of your project?"
-      },
-      {
+        message: "Do you want to open your project for other developers to share, use, and improve?"
+    },
+    {
         type: "input",
         name: "Contributing",
-        message: "What is the title of your project?"
-      },
-      {
+        message: "How would you like other developers to contribute to your project?"
+    },
+    {
         type: "input",
         name: "Tests",
-        message: "What is the title of your project?"
-      },
-      {
+        message: "Did you create tests for your project? Can you elaborate?"
+    },
+    {
         type: "input",
         name: "Questions",
-        message: "What is the title of your project?"
-      },
+        message: "Do you have any questions that you couldnt find the answer to when working on your project?"
+    },
 ];
 
 
@@ -56,8 +59,8 @@ const questions = [
 function writeToFile(fileName, data) {
     const template = generateMarkdown(data);
 
-    fs.writeFile(fileName, template, function(err){
-        if (err) {throw err};
+    fs.writeFile(fileName, template, function (err) {
+        if (err) { throw err };
         console.log("file written!")
     })
 
@@ -66,7 +69,7 @@ function writeToFile(fileName, data) {
 
 // function to initialize program
 function init() {
-    inquirer.prompt(questions).then(function(data){
+    inquirer.prompt(questions).then(function (data) {
         console.log(data);
         const fileName = "readme.md";
         writeToFile(fileName, data);
