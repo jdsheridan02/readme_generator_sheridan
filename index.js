@@ -2,7 +2,7 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const generateMarkdown = require("./generateMarkdown.js")
 
-![jdsheridan02](https://img.shields.io/github/languages/top/jdsheridan02/readme_generator_sheridan)
+const badge = ("https://img.shields.io/github/languages/top/jdsheridan02/readme_generator_sheridan")
 
 // array of questions for user
 
@@ -63,7 +63,7 @@ function writeToFile(fileName, data) {
         if (err) { throw err };
         console.log("file written!")
     })
-
+    questions.push(badge)
     console.log("waiting for file")
 }
 
